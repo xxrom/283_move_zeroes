@@ -8,27 +8,28 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
 
-    zeroes = []
-    allCounter = 0
+    zerosCounter = 0
+    noneZeroCounter = 0
 
-    for index, val in enumerate(nums):
-      if val == 0:
-        zeroes.append(val)
+    for value in nums:
+      if value == 0:
+        zerosCounter += 1
       else:
-        nums[allCounter] = val
-        allCounter += 1
+        nums[noneZeroCounter] = value
+        noneZeroCounter += 1
 
-    for index, val in enumerate(zeroes):
-      nums[allCounter + index] = val
+    for index in range(zerosCounter):
+      nums[noneZeroCounter + index] = 0
 
 
 my = Solution()
 
 n0 = [0, 1, 0, 3, 12]
+# n0 = [1, 1, 3, 0]
 
 my.moveZeroes(n0)
 
 print('ans', n0)
 
-# Runtime: 36 ms, faster than 99.51% of Python3 online submissions for Move Zeroes.
-# Memory Usage: 13.8 MB, less than 100.00% of Python3 online submissions for Move Zeroes.
+# Runtime: 36 ms, faster than 99.62% of Python3 online submissions for Move Zeroes.
+# Memory Usage: 15.3 MB, less than 5.97% of Python3 online submissions for Move Zeroes.
